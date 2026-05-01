@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul · Dec 22–28, 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-primary: #222222;
+            --text-secondary: #717171;
+            --text-light: #b0b0b0;
+            --border: #ebebeb;
+            --bg-soft: #f7f7f7;
+            --accent: #ff385c;
+            --accent-soft: #fff0f3;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            max-height: 700px;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 60px 24px 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-inner {
+            display: flex;
+            gap: 8px;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            flex-shrink: 0;
+            padding: 10px 16px;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-primary);
+            background: var(--bg-soft);
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: var(--text-primary);
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Trip Info Card */
+        .trip-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Day Section */
+        .day-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-header {
+            margin-bottom: 32px;
+        }
+
+        .day-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .day-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .day-plan {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Day Image */
+        .day-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            background: var(--bg-soft);
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 32px;
+        }
+
+        .category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .category-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        /* Place Cards */
+        .places {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .place {
+            padding: 16px 20px;
+            background: var(--bg-soft);
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .place:active {
+            transform: scale(0.98);
+        }
+
+        .place-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .place-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .place-price {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .place-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .place-divider {
+            color: var(--text-light);
+        }
+
+        /* Photo Spots */
+        .photo-section {
+            background: var(--bg-soft);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .photo-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .photo-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .photo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .photo-type {
+            flex-shrink: 0;
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            background: white;
+            color: var(--text-secondary);
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .photo-type.scenic {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .photo-type.urban {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .photo-type.couple {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .photo-desc {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        /* Budget Legend */
+        .budget-legend {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .budget-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .budget-symbol {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 48px 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .footer-flag {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .trip-info {
+                grid-template-columns: 1fr;
+            }
+
+            .day-title {
+                font-size: 1.5rem;
+            }
+
+            .day-image {
+                height: 220px;
+                border-radius: 12px;
+            }
+
+            .photo-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .photo-type {
+                min-width: auto;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Nav item active/tips style */
+        .nav-item.nav-tips {
+            background: var(--accent);
+            color: white;
+        }
+
+        .nav-item.nav-tips:hover {
+            background: #e0314f;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tips-header {
+            margin-bottom: 24px;
+        }
+
+        .tips-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .tips-subtitle {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        /* Accordion */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-trigger:hover {
+            background: var(--bg-soft);
+        }
+
+        .accordion-trigger-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .accordion-emoji {
+            font-size: 1.25rem;
+        }
+
+        .accordion-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .accordion-chevron {
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .accordion-item.open .accordion-chevron {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 0 20px 20px;
+        }
+
+        .accordion-item.open .accordion-content {
+            display: block;
+        }
+
+        /* Tip cards inside accordion */
+        .tip-group {
+            margin-bottom: 16px;
+        }
+
+        .tip-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .tip-group-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tip-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tip-card {
+            padding: 12px 16px;
+            background: var(--bg-soft);
+            border-radius: 10px;
+        }
+
+        .tip-card-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            margin-bottom: 2px;
+        }
+
+        .tip-card-desc {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .tip-card.highlight {
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+        }
+
+        .tip-card.highlight .tip-card-name {
+            color: var(--accent);
+        }
+
+        /* Simple tip text */
+        .tip-text {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .tip-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .tip-text strong {
+            font-weight: 600;
+        }
+
+        /* Tip bullets */
+        .tip-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tip-bullets li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .tip-bullets li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .tip-bullets li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Side Quests Section */
+        .sidequests-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidequests-header {
+            margin-bottom: 24px;
+        }
+
+        .sidequests-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .sidequests-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .sidequests-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Quest Cards */
+        .quest-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .quest-card {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .quest-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .quest-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quest-header.coffee {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+
+        .quest-header.artsy {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+        }
+
+        .quest-header.intl {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        }
+
+        .quest-header.quick {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+
+        .quest-header.night {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        }
+
+        .quest-header.night .quest-name,
+        .quest-header.night .quest-vibe {
+            color: white;
+        }
+
+        .quest-header.night .quest-vibe {
+            opacity: 0.8;
+        }
+
+        .quest-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quest-emoji {
+            font-size: 1.25rem;
+        }
+
+        .quest-vibe {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .quest-body {
+            padding: 20px;
+        }
+
+        .quest-when {
+            font-size: 0.8125rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quest-spots {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .quest-spot {
+            padding: 8px 12px;
+            background: var(--bg-soft);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .quest-spot.highlight {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .quest-note {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Flight Cards */
+        .flights-section {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .flights-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .flight-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .flight-main {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .flight-main:hover {
+            background: var(--bg-soft);
+        }
+
+        .flight-date {
+            text-align: center;
+            min-width: 48px;
+        }
+
+        .flight-date-day {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .flight-date-month {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .flight-route {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flight-city {
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+
+        .flight-code {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .flight-arrow {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .flight-time {
+            text-align: right;
+        }
+
+        .flight-time-range {
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+
+        .flight-duration {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .flight-chevron {
+            width: 16px;
+            height: 16px;
+            color: var(--text-light);
+            transition: transform 0.2s ease;
+        }
+
+        .flight-card.open .flight-chevron {
+            transform: rotate(180deg);
+        }
+
+        .flight-details {
+            display: none;
+            padding: 0 16px 16px;
+            border-top: 1px solid var(--border);
+            margin-top: 0;
+        }
+
+        .flight-card.open .flight-details {
+            display: block;
+            padding-top: 12px;
+        }
+
+        .flight-detail-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8125rem;
+            padding: 4px 0;
+        }
+
+        .flight-detail-label {
+            color: var(--text-secondary);
+        }
+
+        .flight-detail-value {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .flight-detail-value.confirm {
+            font-family: monospace;
+            background: var(--bg-soft);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <header class="hero">
+        <img src="https://dailytravelpill.com/wp-content/uploads/2020/11/gyeongbokgung-palace-south-korea-hanbok-girls.jpg" alt="Seoul cityscape at night" class="hero-image">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Dorian x Huyen Seoul</h1>
+            <p class="hero-subtitle">December 22–28, 2025 · 7 days</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#tips" class="nav-item nav-tips">Tips</a>
+            <a href="#day1" class="nav-item">Day 1</a>
+            <a href="#day2" class="nav-item">Day 2</a>
+            <a href="#day3" class="nav-item">Day 3</a>
+            <a href="#day4" class="nav-item">Day 4</a>
+            <a href="#day5" class="nav-item">Day 5</a>
+            <a href="#day6" class="nav-item">Day 6</a>
+            <a href="#day7" class="nav-item">Day 7</a>
+            <a href="#sidequests" class="nav-item">Bonus</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Trip Info -->
+        <div class="trip-info">
+            <div class="info-item">
+                <span class="info-label">Duration</span>
+                <span class="info-value">7 days, 6 nights</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Travelers</span>
+                <span class="info-value">2 Adults</span>
+            </div>
+        </div>
+
+        <!-- Hotel -->
+        <div class="flights-section">
+            <div class="flight-card" onclick="this.classList.toggle('open')">
+                <div class="flight-main">
+                    <div class="flight-date" style="min-width: 40px;">
+                        <div style="font-size: 1.5rem;">🏨</div>
+                    </div>
+                    <div class="flight-route" style="flex-direction: column; align-items: flex-start; gap: 2px;">
+                        <div class="flight-city" style="font-size: 1rem;">L7 Myeongdong by Lotte</div>
+                        <div class="flight-code">Jung-gu, Seoul</div>
+                    </div>
+                    <div class="flight-time">
+                        <div class="flight-time-range">Dec 22–28</div>
+                        <div class="flight-duration">6 nights</div>
+                    </div>
+                    <svg class="flight-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="flight-details">
+                    <div class="flight-detail-row">
+                        <span class="flight-detail-label">Address</span>
+                        <span class="flight-detail-value">137 Toegye-ro, Jung-gu, Seoul</span>
+                    </div>
+                    <div class="flight-detail-row">
+                        <span class="flight-detail-label">Check-in</span>
+                        <span class="flight-detail-value">Mon, Dec 22 · 3:00 PM</span>
+                    </div>
+                    <div class="flight-detail-row">
+                        <span class="flight-detail-label">Check-out</span>
+                        <span class="flight-detail-value">Sun, Dec 28 · 11:00 AM</span>
+                    </div>
+                    <div class="flight-detail-row">
+                        <span class="flight-detail-label">Expedia #</span>
+                        <span class="flight-detail-value confirm">73318955929256</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flights -->
+        <div class="flights-section">
+            <div class="flights-grid">
+                <!-- Outbound -->
+                <div class="flight-card" onclick="this.classList.toggle('open')">
+                    <div class="flight-main">
+                        <div class="flight-date">
+                            <div class="flight-date-day">22</div>
+                            <div class="flight-date-month">Dec</div>
+                        </div>
+                        <div class="flight-route">
+                            <div>
+                                <div class="flight-city">SGN</div>
+                                <div class="flight-code">Ho Chi Minh</div>
+                            </div>
+                            <span class="flight-arrow">→</span>
+                            <div>
+                                <div class="flight-city">ICN</div>
+                                <div class="flight-code">Seoul</div>
+                            </div>
+                        </div>
+                        <div class="flight-time">
+                            <div class="flight-time-range">9:25a → 4:25p</div>
+                            <div class="flight-duration">5h</div>
+                        </div>
+                        <svg class="flight-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Airline</span>
+                            <span class="flight-detail-value">Vietnam Airlines 402</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Confirmation</span>
+                            <span class="flight-detail-value confirm">AYD87L</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Class</span>
+                            <span class="flight-detail-value">Economy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return -->
+                <div class="flight-card" onclick="this.classList.toggle('open')">
+                    <div class="flight-main">
+                        <div class="flight-date">
+                            <div class="flight-date-day">28</div>
+                            <div class="flight-date-month">Dec</div>
+                        </div>
+                        <div class="flight-route">
+                            <div>
+                                <div class="flight-city">ICN</div>
+                                <div class="flight-code">Seoul</div>
+                            </div>
+                            <span class="flight-arrow">→</span>
+                            <div>
+                                <div class="flight-city">SGN</div>
+                                <div class="flight-code">Ho Chi Minh</div>
+                            </div>
+                        </div>
+                        <div class="flight-time">
+                            <div class="flight-time-range">7:25p → 10:50p</div>
+                            <div class="flight-duration">5h 25m</div>
+                        </div>
+                        <svg class="flight-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Airline</span>
+                            <span class="flight-detail-value">Asiana Airlines 735</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Confirmation</span>
+                            <span class="flight-detail-value confirm">AYDIDP</span>
+                        </div>
+                        <div class="flight-detail-row">
+                            <span class="flight-detail-label">Class</span>
+                            <span class="flight-detail-value">Economy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Budget Legend -->
+        <div class="budget-legend">
+            <div class="budget-item"><span class="budget-symbol">$</span> Budget</div>
+            <div class="budget-item"><span class="budget-symbol">$$</span> Moderate</div>
+            <div class="budget-item"><span class="budget-symbol">$$$</span> Upscale</div>
+            <div class="budget-item"><span class="budget-symbol">$$$$</span> Fine Dining</div>
+        </div>
+
+        <!-- Travel Tips -->
+        <section class="tips-section" id="tips">
+            <div class="tips-header">
+                <h2 class="tips-title">Travel Tips</h2>
+                <p class="tips-subtitle">Apps, transport, money & daily operations</p>
+            </div>
+
+            <div class="accordion">
+                <!-- Pre-Trip Essentials -->
+                <div class="accordion-item open">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">✈️</span>
+                            <span class="accordion-label">Before You Go</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="tip-group">
+                            <p class="tip-group-title">Documents (Don't Forget!)</p>
+                            <div class="tip-list">
+                                <div class="tip-card highlight">
+                                    <p class="tip-card-name">Passport</p>
+                                    <p class="tip-card-desc">Valid for 6+ months beyond travel dates</p>
+                                </div>
+                                <div class="tip-card highlight">
+                                    <p class="tip-card-name">K-ETA or Visa</p>
+                                    <p class="tip-card-desc">Check if you need K-ETA — apply online before departure (takes 24-72 hrs)</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Flight confirmation</p>
+                                    <p class="tip-card-desc">Save offline or print</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Hotel booking confirmation</p>
+                                    <p class="tip-card-desc">Address in Korean helpful for taxis</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Travel insurance</p>
+                                    <p class="tip-card-desc">Medical + trip coverage recommended</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Tech & Money</p>
+                            <div class="tip-list">
+                                <div class="tip-card highlight">
+                                    <p class="tip-card-name">eSIM or SIM plan</p>
+                                    <p class="tip-card-desc">Order eSIM before you leave — active on landing</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Credit cards</p>
+                                    <p class="tip-card-desc">Notify bank of travel dates to avoid blocks</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Phone charger + adapter</p>
+                                    <p class="tip-card-desc">Korea uses Type C/F plugs (same as EU)</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Portable battery pack</p>
+                                    <p class="tip-card-desc">Long days of navigation drain phones fast</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Winter Essentials (Dec)</p>
+                            <div class="tip-list">
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Long down jacket</p>
+                                    <p class="tip-card-desc">Knee-length or longer — Seoul winter is serious</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Heat-tech layers</p>
+                                    <p class="tip-card-desc">Thin thermal base layers (Uniqlo works)</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Gloves + beanie</p>
+                                    <p class="tip-card-desc">Wind chill is real</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Warm walking shoes</p>
+                                    <p class="tip-card-desc">Waterproof with grip for ice patches</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Lip balm + hand cream</p>
+                                    <p class="tip-card-desc">Cold + indoor heating = dry skin</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Nice to Have</p>
+                            <ul class="tip-bullets">
+                                <li>Small crossbody bag for daily carry</li>
+                                <li>Reusable tote for shopping</li>
+                                <li>Sunglasses (winter sun + snow glare)</li>
+                                <li>Any prescription meds (in original packaging)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apps -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">📱</span>
+                            <span class="accordion-label">Apps to Download</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="tip-group">
+                            <p class="tip-group-title">Must Have</p>
+                            <div class="tip-list">
+                                <div class="tip-card highlight">
+                                    <p class="tip-card-name">Naver Map</p>
+                                    <p class="tip-card-desc">Primary navigation — best for transit, walking, POIs in Korea</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">KakaoMap</p>
+                                    <p class="tip-card-desc">Backup navigation</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Kakao T</p>
+                                    <p class="tip-card-desc">Taxis — use when cold, late, or tired</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Papago</p>
+                                    <p class="tip-card-desc">Best Korean↔English/Vietnamese translation</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">KakaoTalk</p>
+                                    <p class="tip-card-desc">Local messenger — shops/bookings may message here</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Optional</p>
+                            <div class="tip-list">
+                                <div class="tip-card">
+                                    <p class="tip-card-name">WOWPASS app</p>
+                                    <p class="tip-card-desc">Only if using WOWPASS card</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Google Translate</p>
+                                    <p class="tip-card-desc">Camera translation backup</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Around -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">🚇</span>
+                            <span class="accordion-label">Getting Around</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="tip-group">
+                            <p class="tip-group-title">Default: Subway + Walking</p>
+                            <p class="tip-text">Fast, cheap, predictable. Itinerary is built around subway-friendly areas (Myeongdong ↔ Jongno/Anguk ↔ COEX/Gangnam ↔ Jamsil).</p>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">When to Taxi (Kakao T)</p>
+                            <ul class="tip-bullets">
+                                <li>Below freezing or windy</li>
+                                <li>Dressed up for nice dinner</li>
+                                <li>Carrying shopping bags between areas</li>
+                                <li>Late night</li>
+                            </ul>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Airport Transfer (ICN ↔ Myeongdong)</p>
+                            <div class="tip-list">
+                                <div class="tip-card highlight">
+                                    <p class="tip-card-name">AREX + Subway</p>
+                                    <p class="tip-card-desc">Cheapest, most predictable (no traffic)</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Airport Limo Bus</p>
+                                    <p class="tip-card-desc">Comfortable with luggage, slightly slower</p>
+                                </div>
+                                <div class="tip-card">
+                                    <p class="tip-card-name">Taxi</p>
+                                    <p class="tip-card-desc">Most convenient, most expensive</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- T-money -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">💳</span>
+                            <span class="accordion-label">T-money Card</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="tip-bullets">
+                            <li><strong>Buy a T-money card early</strong> — convenience store near hotel is easiest</li>
+                            <li>Use for subway + buses</li>
+                            <li>Top up as needed at convenience stores</li>
+                            <li><strong>Keep one card each</strong> — don't share (gates become slow)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Money -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">💰</span>
+                            <span class="accordion-label">Money & Payments</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="tip-group">
+                            <p class="tip-group-title">You'll use 3 payment modes</p>
+                            <ul class="tip-bullets">
+                                <li><strong>Credit card</strong> — most restaurants, cafes, stores</li>
+                                <li><strong>T-money</strong> — transit</li>
+                                <li><strong>Cash</strong> — markets, small shops, T-money top-ups</li>
+                            </ul>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">ATM Tips</p>
+                            <ul class="tip-bullets">
+                                <li>Withdraw KRW as needed (don't over-carry)</li>
+                                <li>Use ATMs in banks, convenience stores, subway stations</li>
+                                <li><strong>Avoid "dynamic currency conversion"</strong> — choose to be charged in KRW</li>
+                            </ul>
+                        </div>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Cash-heavy spots</p>
+                            <p class="tip-text"><strong>Gwangjang Market</strong> — some stalls take card, but cash is faster</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WOWPASS -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">🪪</span>
+                            <span class="accordion-label">WOWPASS (Optional)</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="tip-text"><strong>What it is:</strong> Tourist prepaid card for easy payments where foreign cards sometimes fail.</p>
+                        <p class="tip-text"><strong>Good for:</strong> Simplifying payments + predictable fallback</p>
+                        <p class="tip-text"><strong>Note:</strong> T-money is separate — you still top up transit separately.</p>
+                        <p class="tip-text"><strong>Skip if:</strong> You're fine with credit card + T-money + some cash</p>
+                    </div>
+                </div>
+
+                <!-- Connectivity -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">📶</span>
+                            <span class="accordion-label">Connectivity</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="tip-text"><strong>Get data immediately</strong> — you need it for Naver Map + transit routing.</p>
+                        <div class="tip-list">
+                            <div class="tip-card highlight">
+                                <p class="tip-card-name">eSIM</p>
+                                <p class="tip-card-desc">Best option if your phone supports it</p>
+                            </div>
+                            <div class="tip-card">
+                                <p class="tip-card-name">Physical SIM at Airport</p>
+                                <p class="tip-card-desc">Backup option — get it right when you land</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">🧥</span>
+                            <span class="accordion-label">Weather & Clothing</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="tip-text"><strong>Late December:</strong> Cold, often windy, potentially below freezing.</p>
+                        <div class="tip-group">
+                            <p class="tip-group-title">Pack</p>
+                            <ul class="tip-bullets">
+                                <li>Long down jacket</li>
+                                <li>Heat-tech base layer</li>
+                                <li>Gloves + beanie</li>
+                                <li>Comfortable walking shoes with grip (ice patches happen)</li>
+                            </ul>
+                        </div>
+                        <p class="tip-text"><strong>Pro tip:</strong> Indoors gets hot — dress in layers so you can shed a jacket.</p>
+                    </div>
+                </div>
+
+                <!-- Daily Habits -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="accordion-trigger-left">
+                            <span class="accordion-emoji">⚡</span>
+                            <span class="accordion-label">Daily Efficiency Tips</span>
+                        </span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="tip-bullets">
+                            <li><strong>Pin everything in Naver Map by day</strong> — create Day 1–7 lists</li>
+                            <li><strong>Cap each day:</strong> 1 main meal + 1 café + 1 dessert (otherwise you lose hours to transit + queues)</li>
+                            <li><strong>Queue-heavy places</strong> (London Bagel Museum, top BBQ): go right at open or accept a tradeoff</li>
+                            <li><strong>Escalators:</strong> Stand on one side, pass on the other (follow local flow)</li>
+                            <li><strong>Avoid peak meal times</strong> if you hate lines — popular places have waits</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 1 -->
+        <section class="day-section" id="day1">
+            <div class="day-header">
+                <p class="day-label">Day 1 · Dec 22</p>
+                <h2 class="day-title">Arrival + Myeongdong</h2>
+                <p class="day-plan">Land at ICN → check into hotel → explore Myeongdong night market + skincare shopping</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Myeongdong Kyoja</p>
+                        <div class="place-meta">
+                            <span class="place-price">$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Classic kalguksu & mandu, fast iconic first-night comfort</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Woo Lae Oak</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Legendary naengmyeon in Euljiro, old-school Seoul meal</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Eunjujeong</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Local favorite in Euljiro, less touristy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Blue Bottle Myeongdong</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Modern minimal, reliable reset near hotel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Myeongdong Skincare Street + Olive Young</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Best density for K-beauty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Myeongdong neon streets + food stalls — classic "Seoul at night" energy</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Blue Bottle exterior/interior, night market candid shots with street food + lights</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 2 -->
+        <section class="day-section" id="day2">
+            <div class="day-header">
+                <p class="day-label">Day 2 · Dec 23</p>
+                <h2 class="day-title">Palaces, Hanok & N Seoul Tower</h2>
+                <p class="day-plan">Morning at Gyeongbokgung → Bukchon hanok alleys → Ikseon-dong + Insadong afternoon → N Seoul Tower at night</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Tosokchon Samgyetang</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Perfect winter ginseng chicken soup near Gyeongbokgung</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Hwangsaengga Kalguksu</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Ideal noodles while in Bukchon/Jongno area</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Onjium</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Korean tasting menu for a special occasion (reserve ahead)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee & Tea
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Cafe Onion Anguk</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Beautiful hanok aesthetic bakery café</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Osulloc Tea House Bukchon</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Calm tea stop mid-walk through the alleys</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Seoul Coffee Ikseon</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Cozy hanok café with couple vibe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 01-1.5.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"></path></svg>
+                    Bakeries & Desserts
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">London Bagel Museum (Anguk)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Trendy bagels — go early or accept the queue</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Artist Bakery</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">High hit-rate pastries, easy add-on</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Soha Salt Pond (Ikseon)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Perfect "Ikseon wander" snack stop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Insadong</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Best souvenir zone — crafts & traditional gifts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Bukchon "8 Views" — official vantage points with rooftops + lanes</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">N Seoul Tower at night — the essential Seoul skyline postcard shot</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Ikseon-dong alleys — hanok + modern signage, beautiful at night</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Hanbok photos at palace gates, Cafe Onion interior for "Seoul aesthetic"</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    Optional: Northwest Detour
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Yonsei University Campus</p>
+                        <div class="place-meta">
+                            <span class="place-desc">Historic campus in Sinchon — beautiful winter photo spot (30–45 min)</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">1IN1JAN SEOUL (Eunpyeong Hanok Village)</p>
+                        <div class="place-meta">
+                            <span class="place-desc">Quieter hanok village alternative to Bukchon — less crowds, more local</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">📍 905 Jiyeong-dong, Ilsandong-gu, Goyang-si, Gyeonggi-do</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name" style="font-weight: 500; font-style: italic; color: #9ca3af;">⚠️ Constraints</p>
+                        <div class="place-meta">
+                            <span class="place-desc">Located 30–40 min outside central Seoul (northwest suburbs)</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">Best as morning start before heading to Bukchon/Jongno — or swap for Bukchon entirely</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">Adds ~1.5 hrs transit if combined with main Day 2 route</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 3 -->
+        <section class="day-section" id="day3">
+            <div class="day-header">
+                <p class="day-label">Day 3 · Dec 24</p>
+                <h2 class="day-title">Lotte World</h2>
+                <p class="day-plan">Full day at Lotte World theme park → Optional Seoul Sky Observatory if energy remains</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Lotte World Complex</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Convenience-first — eat inside or around the complex</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Back to Central for Dinner</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Myeongdong Kyoja ($) or Woo Lae Oak ($$) if you want a real meal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Seoul Sky Observatory — massive skyline view (if you go)</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Lotte World Christmas decorations — bright, festive theme park Seoul</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Castle backdrop zones, Seoul Sky glass/height shots</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Optional Side Trip
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">McLaren Seoul Showroom (Gangnam)</p>
+                        <div class="place-meta">
+                            <span class="place-desc">Optional: 5:00–6:15 PM (quick visit, 60–75 min) · (backup: 10:30–11:30 AM)</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">McLaren Seoul (Gangnam, Yeongdong-daero) — open hours listed 10:00–19:00</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">📞 Call ahead 1–2 days before to confirm holiday hours and whether a 750S is on display.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 4 -->
+        <section class="day-section" id="day4">
+            <div class="day-header">
+                <p class="day-label">Day 4 · Dec 25</p>
+                <h2 class="day-title">Christmas Day</h2>
+                <p class="day-plan">Intentional café morning → COEX + Starfield Library → Cheonggyecheon lights → Special Christmas dinner</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Christmas Dinner
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Geumdwaeji Sikdang (Gold Pig)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Famous top pork BBQ in Yaksu — competitive but worth it</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Mingles</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Modern Korean tasting in Gangnam — event-night worthy</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">La Yeon (Shilla)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Luxury tasting — formal, once-in-Seoul experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee (Pick 1 Neighborhood)
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Sanmotungi (Buam-dong)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Romantic winter view café</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Anthracite Hannam</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Industrial coffee, design-forward vibe</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Café Aalto (Amorepacific)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Refined, calm design café</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Hahouse Cafe (Itaewon)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Gallery/industrial with strong photo interior</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 01-1.5.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"></path></svg>
+                    Bakeries
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Tartine Bakery (Hannam)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">High-quality bakery</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Teddy Beurre House (Samgakji)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Buttery pastry specialty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">COEX Mall</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Weather-proof mega mall</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Afternoon Stop
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">McLaren Seoul Showroom (Gangnam)</p>
+                        <div class="place-meta">
+                            <span class="place-desc">3:30–4:45 PM (60–75 min) · (backup: 11:00 AM–12:00 PM)</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">McLaren Seoul (Gangnam, Yeongdong-daero) — open hours listed 10:00–19:00</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">📞 Call ahead 1–2 days before to confirm holiday hours and whether a 750S is on display.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Cheonggyecheon Stream — evening stroll with seasonal light installations</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Starfield Library towering shelves — go early to avoid crowds</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Starfield escalators/shelf symmetry, design café interiors</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    Optional: Northwest Detour
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Yonsei University Campus</p>
+                        <div class="place-meta">
+                            <span class="place-desc">Historic campus in Sinchon — beautiful winter photo spot (30–45 min)</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">1IN1JAN SEOUL (Eunpyeong Hanok Village)</p>
+                        <div class="place-meta">
+                            <span class="place-desc">Quieter hanok café/space — swap this for the "intentional café morning" slot</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">📍 905 Jiyeong-dong, Ilsandong-gu, Goyang-si, Gyeonggi-do</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name" style="font-weight: 500; font-style: italic; color: #9ca3af;">⚠️ Constraints</p>
+                        <div class="place-meta">
+                            <span class="place-desc">Located 30–40 min outside central Seoul (northwest suburbs)</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">Best as Christmas morning café before heading southeast to COEX/Gangnam</span>
+                        </div>
+                        <div class="place-meta">
+                            <span class="place-desc">Route: Eunpyeong → Yonsei → COEX → McLaren → Cheonggyecheon lights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 5 -->
+        <section class="day-section" id="day5">
+            <div class="day-header">
+                <p class="day-label">Day 5 · Dec 26</p>
+                <h2 class="day-title">Ski Day — Vivaldi Park</h2>
+                <p class="day-plan">Shuttle to Vivaldi Park → rentals + lesson → ski all day → return to Seoul evening</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Post-Ski Dinner
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Myeongdong Kyoja</p>
+                        <div class="place-meta">
+                            <span class="place-price">$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Fastest warm meal back in the city</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Woo Lae Oak</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Classic reward meal after a day on the slopes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Snow slope panoramas — best at golden hour near end of day</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Lift-line/couple snow portraits, rental gear + goggles shots</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 6 -->
+        <section class="day-section" id="day6">
+            <div class="day-header">
+                <p class="day-label">Day 6 · Dec 27</p>
+                <h2 class="day-title">Nami Island + Light Festival</h2>
+                <p class="day-plan">Nami Island day trip → Chuncheon Dakgalbi lunch → Garden of Morning Calm lights at night → return</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Chuncheon Dakgalbi</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Regional specialty — the correct pairing with this trip</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Nami Island winter tree lanes — iconic long-perspective shots</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">Riverside views on Nami (weather dependent)</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">Garden of Morning Calm arch tunnels + illuminated installations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 7 -->
+        <section class="day-section" id="day7">
+            <div class="day-header">
+                <p class="day-label">Day 7 · Dec 28</p>
+                <h2 class="day-title">Gwangjang Market + Gangnam + Departure</h2>
+                <p class="day-plan">Morning Gwangjang Market → Garosu-gil + Apgujeong Rodeo → lunch → hotel → ICN by ~3 PM</p>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat — Gwangjang Market
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Gwangjang Market</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Bindaetteok + mayak gimbap are the signature eats</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                    Eat — Gangnam Finale
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Samwon Garden (Apgujeong)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Upscale BBQ — polished "final meal" vibe</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Born and Bred (Majang)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Serious beef — destination meat experience</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Mingles (Gangnam)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Tasting menu if you want the last meal to be a statement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    Coffee & Dessert
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">NUDAKE (Haus Nowhere Dosan)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Dessert-art — most "Seoul trend" photo stop</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">VIEW376 (Apgujeong Rodeo)</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Han River view café — "final photos" energy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3 class="category-title">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    Shopping
+                </h3>
+                <div class="places">
+                    <div class="place">
+                        <p class="place-name">Sinsa Garosu-gil</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$–$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Boutiques + date street walk</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Apgujeong Rodeo</p>
+                        <div class="place-meta">
+                            <span class="place-price">$$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Trend/luxury + people watching</span>
+                        </div>
+                    </div>
+                    <div class="place">
+                        <p class="place-name">Gangnam Station Underground</p>
+                        <div class="place-meta">
+                            <span class="place-price">$–$$</span>
+                            <span class="place-divider">·</span>
+                            <span class="place-desc">Efficient last-minute gifts/accessories</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3 class="photo-title">📸 Photo Spots</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <span class="photo-type scenic">Scenic</span>
+                        <span class="photo-desc">VIEW376 — Han River/skyline framing</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Gwangjang Market — steam/griddle scenes, documentary-style shots</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type urban">Urban</span>
+                        <span class="photo-desc">Garosu-gil — clean "K-drama shopping street" vibe</span>
+                    </div>
+                    <div class="photo-item">
+                        <span class="photo-type couple">Couple</span>
+                        <span class="photo-desc">NUDAKE dessert sculptures, Gwangjang food-in-hand shots</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Side Quests -->
+        <section class="sidequests-section" id="sidequests">
+            <div class="sidequests-header">
+                <p class="sidequests-label">Bonus</p>
+                <h2 class="sidequests-title">Side Quests</h2>
+                <p class="sidequests-subtitle">Neighborhoods that didn't fit the core itinerary but are worth swapping in if you want a different vibe.</p>
+            </div>
+
+            <div class="quest-grid">
+                <!-- Seongsu -->
+                <div class="quest-card">
+                    <div class="quest-header artsy">
+                        <p class="quest-name"><span class="quest-emoji">🎨</span> Seongsu</p>
+                        <p class="quest-vibe">Design cafés + converted warehouse vibes</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for a half-day of pure cafés + shopping</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Cafe Onion Seongsu</span>
+                            <span class="quest-spot">Daelim Changgo</span>
+                            <span class="quest-spot">Foreplan</span>
+                            <span class="quest-spot">Jayeondo Sogeumppang</span>
+                        </div>
+                        <p class="quest-note">Seoul's Brooklyn — industrial spaces turned into Instagram-worthy cafés. Great for a slow, photogenic morning.</p>
+                    </div>
+                </div>
+
+                <!-- Yeonnam/Hongdae -->
+                <div class="quest-card">
+                    <div class="quest-header coffee">
+                        <p class="quest-name"><span class="quest-emoji">🧸</span> Yeonnam + Hongdae</p>
+                        <p class="quest-vibe">Youth culture + cute cafés + street energy</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for playful, younger street scene</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Cafe Layered Yeonnam</span>
+                            <span class="quest-spot">Coffee Nap Roasters</span>
+                            <span class="quest-spot">Greem Café</span>
+                            <span class="quest-spot">Yeonnam-dong Street</span>
+                        </div>
+                        <p class="quest-note">University area energy. Best in late afternoon → evening for street performers, buskers, and nightlife if you want it.</p>
+                    </div>
+                </div>
+
+                <!-- Hannam/Itaewon -->
+                <div class="quest-card">
+                    <div class="quest-header intl">
+                        <p class="quest-name"><span class="quest-emoji">🌍</span> Hannam + Itaewon + HBC</p>
+                        <p class="quest-vibe">International scene + serious coffee culture</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for "expat Seoul" + strong coffee</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Anthracite Hannam</span>
+                            <span class="quest-spot">Tartine Bakery</span>
+                            <span class="quest-spot">Upstanding Coffee</span>
+                            <span class="quest-spot">Hahouse Cafe</span>
+                        </div>
+                        <p class="quest-note">More cosmopolitan feel. Good brunch spots, international restaurants, and design-forward spaces. Haebangchon (HBC) has neighborhood charm.</p>
+                    </div>
+                </div>
+
+                <!-- Hapjeong -->
+                <div class="quest-card">
+                    <div class="quest-header quick">
+                        <p class="quest-name"><span class="quest-emoji">☕</span> Hapjeong</p>
+                        <p class="quest-vibe">Single intentional coffee mission</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use as a quick detour, not a whole day</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Perception</span>
+                        </div>
+                        <p class="quest-note">Worth the trip if you're serious about specialty coffee. Combine with Hongdae/Yeonnam if nearby.</p>
+                    </div>
+                </div>
+
+                <!-- DDP -->
+                <div class="quest-card">
+                    <div class="quest-header night">
+                        <p class="quest-name"><span class="quest-emoji">🌙</span> Dongdaemun Design Plaza (DDP)</p>
+                        <p class="quest-vibe">Zaha Hadid architecture + night photography</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for architecture photos, especially at night</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">DDP exterior</span>
+                            <span class="quest-spot">LED Rose Garden</span>
+                            <span class="quest-spot">Dongdaemun Night Market</span>
+                        </div>
+                        <p class="quest-note">The futuristic building looks incredible lit up after dark. Combine with late-night shopping at Dongdaemun malls (open until 5am).</p>
+                    </div>
+                </div>
+
+                <!-- Mangwon -->
+                <div class="quest-card">
+                    <div class="quest-header">
+                        <p class="quest-name"><span class="quest-emoji">🥐</span> Mangwon</p>
+                        <p class="quest-vibe">Local market + neighborhood bakeries</p>
+                    </div>
+                    <div class="quest-body">
+                        <p class="quest-when">→ Use for a chill local morning</p>
+                        <div class="quest-spots">
+                            <span class="quest-spot highlight">Mangwon Market</span>
+                            <span class="quest-spot">Fritz Coffee</span>
+                            <span class="quest-spot">Meal° Bakery</span>
+                        </div>
+                        <p class="quest-note">Less touristy than Gwangjang. Great for fresh produce, street food, and a more "real Seoul" vibe. Near Han River for a walk after.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-flag">🇰🇷</div>
+        <p>Have an amazing trip to Seoul!</p>
+    </footer>
+</body>
+</html>
