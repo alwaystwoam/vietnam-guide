@@ -216,8 +216,11 @@ body {
 }
 .colophon dl {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--s-3) var(--s-4);
+}
+@media (min-width: 540px) {
+  .colophon dl { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 720px) {
   .colophon dl { grid-template-columns: repeat(4, 1fr); }
