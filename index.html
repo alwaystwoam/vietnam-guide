@@ -40,15 +40,15 @@ a { color: inherit; }
 
   --s-1: 0.5rem;
   --s-2: 1rem;
-  --s-3: 1.5rem;
-  --s-4: 2.5rem;
-  --s-5: 4rem;
-  --s-6: 6.5rem;
-  --s-7: 10.5rem;
+  --s-3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);   /* 20 → 24 */
+  --s-4: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);   /* 28 → 40 */
+  --s-5: clamp(2.5rem, 1.82rem + 2.9vw, 4rem);     /* 40 → 64 */
+  --s-6: clamp(3.5rem, 2.14rem + 5.8vw, 6.5rem);   /* 56 → 104 */
+  --s-7: clamp(5rem, 2.5rem + 10.7vw, 10.5rem);    /* 80 → 168 */
 
   --col:        38rem;
   --col-wide:   44rem;
-  --gutter:     clamp(1.25rem, 4vw, 2.5rem);
+  --gutter:     clamp(1.5rem, 4vw, 2.5rem);        /* 24 → 40 */
 
   --serif: "Fraunces", "Iowan Old Style", "Source Serif Pro", Georgia, serif;
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -108,7 +108,7 @@ body {
 
 .cover {
   position: relative;
-  height: clamp(540px, 96vh, 880px);
+  height: clamp(440px, 78svh, 760px);
   overflow: hidden;
   background: var(--ink);
   margin-bottom: var(--s-6);
@@ -371,6 +371,7 @@ body {
   color: var(--muted);
   margin-bottom: var(--s-2);
   display: flex; align-items: baseline; gap: 0.6em;
+  flex-wrap: wrap;
 }
 .day-folio .day-folio-num {
   font-family: var(--serif);
@@ -815,7 +816,7 @@ section[id], article[id] { scroll-margin-top: 5rem; }
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tan%20Son%20Nhat%20International%20Airport%20Ho%20Chi%20Minh%20City">VIP airport fast track &amp; private transfer</a></h4><p class="entry-text">Meet-and-greet assistance through arrival queues, then straight into a pre-booked car. <em class="entry-cost">— $$–$$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Nguyen%20Hue%20Walking%20Street%20Ho%20Chi%20Minh%20City">Nguyen Hue mini-walk</a></h4><p class="entry-text">Start at Ho Chi Minh City Hall and the statue, walk the open boulevard, then choose one cafe stop instead of trying to sightsee hard on arrival night. <em class="entry-cost">— $</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=42%20Nguyen%20Hue%20Cafe%20Apartments%20Ho%20Chi%20Minh%20City">42 Nguyen Hue Cafe Apartments</a></h4><p class="entry-text">The famous old apartment block stacked with cafes and small shops; go up for balcony views over the walking street. <em class="entry-cost">— $–$$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Saigon%20Oi%2042%20Nguyen%20Hue%20Ho%20Chi%20Minh%20City">Saigon Oi</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Letter%2042%20Nguyen%20Hue%20Ho%20Chi%20Minh%20City">The Letter</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Boo%20Coffee%2042%20Nguyen%20Hue%20Ho%20Chi%20Minh%20City">Boo Coffee</a></h4><p class="entry-text">Saigon Oi for greenery and an easy first coffee, The Letter for Hoi An lantern mood, Boo for a higher-floor photo stop if it is open. <em class="entry-cost">— $–$$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Saigon%20Oi%2042%20Nguyen%20Hue%20Ho%20Chi%20Minh%20City">Saigon Oi</a> or the best currently open 42 Nguyen Hue cafe</h4><p class="entry-text">Saigon Oi is the first check for greenery and an easy balcony coffee. Tenant turnover is real in the Cafe Apartments, so use the building for the view and verify the exact cafe on Google Maps before climbing. <em class="entry-cost">— $–$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bach%20Dang%20Wharf%20Ho%20Chi%20Minh%20City">Bach Dang river end</a></h4><p class="entry-text">If they are awake enough, continue to the river for skyline air, then loop back to The Reverie or up to a rooftop. <em class="entry-cost">— $</em></p></article>
       </section>
 
@@ -848,9 +849,9 @@ section[id], article[id] { scroll-margin-top: 5rem; }
       <section class="day-block">
         <p class="kicker">Eat.</p>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Running%20Bean%20Ho%20Chi%20Minh%20City%20Vietnam">The Running Bean</a></h4><p class="entry-text">Excellent first proper brunch — coffee, eggs, toast, bowls, easy for picky eaters. <em class="entry-cost">— $$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Godmother%20Bake%20%26%20Brunch%20Ho%20Chi%20Minh%20City%20Vietnam">Godmother Bake &amp; Brunch</a></h4><p class="entry-text">A pretty Le Loi brunch room; good for a slow couple morning near the hotel zone. <em class="entry-cost">— $$–$$$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Godmother%20Bake%20%26%20Brunch%20Ho%20Chi%20Minh%20City%20Vietnam">Godmother Bake &amp; Brunch</a></h4><p class="entry-text">A pretty Le Loi room for coffee, cake, and photos if they are nearby. Keep Running Bean as the stronger full-brunch default because recent Godmother food reviews are more mixed. <em class="entry-cost">— $$–$$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mille%20Mille%20Ho%20Chi%20Minh%20City%20Vietnam">Mille Mille</a></h4><p class="entry-text">Croissants and peach tea. A polished pastry stop when they want something light. <em class="entry-cost">— $$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=L'Usine%20Ho%20Chi%20Minh%20City%20Vietnam">L'Usine</a> &amp; <a href="https://www.google.com/maps/search/?api=1&amp;query=Pizza%204P's%20Ho%20Chi%20Minh%20City%20Vietnam">Pizza 4P's</a></h4><p class="entry-text">Modern cafe-brunch and the comfort-food backup that still feels like a Vietnam classic. <em class="entry-cost">— $$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=L%27Usine%20Ho%20Chi%20Minh%20City%20Vietnam">L'Usine</a> &amp; <a href="https://www.google.com/maps/search/?api=1&amp;query=Pizza%204P%27s%20Ho%20Chi%20Minh%20City%20Vietnam">Pizza 4P's</a></h4><p class="entry-text">Modern cafe-brunch and the comfort-food backup that still feels like a Vietnam classic. <em class="entry-cost">— $$</em></p></article>
       </section>
 
       <section class="day-block">
@@ -876,14 +877,14 @@ section[id], article[id] { scroll-margin-top: 5rem; }
         <p class="kicker">Do.</p>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Xuan%20Thuy%20Thao%20Dien%20Ho%20Chi%20Minh%20City">Thao Dien boutique loop</a></h4><p class="entry-text">Start on Xuan Thuy, cut toward Tran Ngoc Dien, finish on Nguyen Van Huong. Calmer than District 1, with fashion, homeware, cafes, and shade between stops. <em class="entry-cost">— $$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Saigon%20Concept%20Tran%20Ngoc%20Dien%20Ho%20Chi%20Minh%20City">Saigon Concept</a> &amp; <a href="https://www.google.com/maps/search/?api=1&amp;query=In%20The%20Mood%20Saigon%20Tran%20Ngoc%20Dien%20Ho%20Chi%20Minh%20City">In The Mood Saigon</a></h4><p class="entry-text">Tran Ngoc Dien stops for curated local fashion, vintage and secondhand finds, artful home objects, and modern Vietnamese craft in a villa-neighborhood setting. <em class="entry-cost">— $$–$$$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Amai%20Saigon%20Ho%20Chi%20Minh%20City">Amaï</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Sadec%20District%20Thao%20Dien%20Ho%20Chi%20Minh%20City">Sadec District</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=KOKONIC%20Thao%20Dien%20Ho%20Chi%20Minh%20City">KOKONIC</a></h4><p class="entry-text">Good gift targets around Thao Dien: pastel ceramics, tableware, baskets, small decor, and Vietnam-themed pieces that still feel stylish. <em class="entry-cost">— $$–$$$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Amai%20Saigon%20Ho%20Chi%20Minh%20City">Amaï</a> or <a href="https://www.google.com/maps/search/?api=1&amp;query=KOKONIC%20Thao%20Dien%20Ho%20Chi%20Minh%20City">KOKONIC</a></h4><p class="entry-text">Good gift targets around Thao Dien: ceramics, tableware, gourmet gifts, small decor, and Vietnam-themed pieces that still feel stylish. <em class="entry-cost">— $$–$$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Deck%20Saigon%20Ho%20Chi%20Minh%20City">The Deck Saigon</a> or <a href="https://www.google.com/maps/search/?api=1&amp;query=Thu%20Thiem%20Park%20Ho%20Chi%20Minh%20City">Thu Thiem skyline stop</a></h4><p class="entry-text">The Deck is romantic riverside Thao Dien; Thu Thiem is the quick skyline-photo version. <em class="entry-cost">— $$–$$$</em></p></article>
       </section>
 
       <section class="day-block">
         <p class="kicker">Eat.</p>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=L'Usine%20Le%20Thanh%20Ton%20Ho%20Chi%20Minh%20City">L'Usine Le Thanh Ton</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Bagel%20Brothers%20Thao%20Dien%20Ho%20Chi%20Minh%20City">Bagel Brothers</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Bakes%20Saigon%20Ho%20Chi%20Minh%20City">Bakes</a></h4><p class="entry-text">Use L'Usine before or after the District 1 shopping loop; Bagel Brothers or Bakes when the day stays in Thao Dien. <em class="entry-cost">— $$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Stoker%20Woodfired%20Grill%20Ho%20Chi%20Minh%20City">Stoker</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Ciao%20Bella%20Saigon%20Ho%20Chi%20Minh%20City">Ciao Bella</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Long%20Times%20Square%20Saigon%20Ho%20Chi%20Minh%20City">The Long</a></h4><p class="entry-text">Stoker for steak; Ciao Bella for cozy Italian; The Long for a no-taxi dinner near The Reverie. <em class="entry-cost">— $$$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=L%27Usine%20Le%20Thanh%20Ton%20Ho%20Chi%20Minh%20City">L'Usine Le Thanh Ton</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Bakes%20Thao%20Dien%20Ho%20Chi%20Minh%20City">Bakes Thao Dien</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Maison%20Marou%20Thao%20Dien%20Ho%20Chi%20Minh%20City">Maison Marou Thao Dien</a></h4><p class="entry-text">Use L'Usine before or after the District 1 shopping loop; choose Bakes for polished pastries and brunch in Thao Dien, or Maison Marou for chocolate, gifts, and a reliable cafe pause. <em class="entry-cost">— $$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ciao%20Bella%20Saigon%20Ho%20Chi%20Minh%20City">Ciao Bella</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Long%20Times%20Square%20Saigon%20Ho%20Chi%20Minh%20City">The Long</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Pizza%204P%27s%20Ho%20Chi%20Minh%20City%20Vietnam">Pizza 4P's</a></h4><p class="entry-text">Ciao Bella for cozy Italian; The Long for a no-taxi dinner near The Reverie; Pizza 4P's for the safest comfort-food backup. <em class="entry-cost">— $$–$$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Zion%20Sky%20Lounge%20Ho%20Chi%20Minh%20City">Zion Sky Lounge</a> or <a href="https://www.google.com/maps/search/?api=1&amp;query=Social%20Club%20Rooftop%20Bar%20Ho%20Chi%20Minh%20City">Social Club Rooftop</a></h4><p class="entry-text">Zion is livelier and music-forward; Social Club is the more polished cocktail rooftop. <em class="entry-cost">— $$$–$$$$</em></p></article>
       </section>
 
@@ -906,7 +907,7 @@ section[id], article[id] { scroll-margin-top: 5rem; }
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cho%20Lon%20Ho%20Chi%20Minh%20City%20Vietnam">Cho Lon by private guide or car</a></h4><p class="entry-text">A more textured Saigon, without making them navigate it alone. <em class="entry-cost">— $$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ben%20Thanh%20Market%20Ho%20Chi%20Minh%20City">Ben Thanh</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Saigon%20Centre%20Ho%20Chi%20Minh%20City">Saigon Centre</a> &amp; <a href="https://www.google.com/maps/search/?api=1&amp;query=Dong%20Khoi%20Street%20Ho%20Chi%20Minh%20City">Dong Khoi</a> shopping</h4><p class="entry-text">Choose polished malls if the markets feel too intense. <em class="entry-cost">— $–$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ha%20Tam%20Jewelry%202%20Nguyen%20An%20Ninh%20Ho%20Chi%20Minh%20City">Ha Tam Jewelry — cash exchange</a></h4><p class="entry-text">The famous money exchange beside Ben Thanh at 2 Nguyen An Ninh; useful before the beach chapters. <em class="entry-cost">— $</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mille%20Mille%20Ho%20Chi%20Minh%20City%20Vietnam">Mille Mille</a> or <a href="https://www.google.com/maps/search/?api=1&amp;query=LaLa%20Bakery%20Ho%20Chi%20Minh%20City%20Vietnam">LaLa Bakery</a></h4><p class="entry-text">Mille Mille for croissants and peach tea; LaLa for cakes and a cute bakery break. Check the current branch before routing across town. <em class="entry-cost">— $–$$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mille%20Mille%20Ho%20Chi%20Minh%20City%20Vietnam">Mille Mille</a> or <a href="https://www.google.com/maps/search/?api=1&amp;query=Maison%20Marou%20Saigon%20Ho%20Chi%20Minh%20City">Maison Marou</a></h4><p class="entry-text">Mille Mille for croissants and peach tea; Maison Marou for chocolate, pastry, gifts, and a more proven District 1 dessert stop. <em class="entry-cost">— $–$$</em></p></article>
       </section>
 
       <section class="day-block">
@@ -978,7 +979,7 @@ section[id], article[id] { scroll-margin-top: 5rem; }
         <p class="kicker">Eat — safe.</p>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Morning%20Glory%20Hoi%20An%20Vietnam">Morning Glory</a> or <a href="https://www.google.com/maps/search/?api=1&amp;query=Mango%20Mango%20Hoi%20An%20Vietnam">Mango Mango</a></h4><p class="entry-text">Tourist-friendly Vietnamese with enough familiar options. <em class="entry-cost">— $$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vincognito%20Wine%20Bar%20Italian%20Trattoria%20Hoi%20An">Vincognito</a></h4><p class="entry-text">An art-deco villa with wine, pizza and pasta — the clean Western-safe backup if Vietnamese menus start to feel like effort. <em class="entry-cost">— $$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rosie's%20Cafe%20Hoi%20An%20Vietnam">Rosie's Cafe</a></h4><p class="entry-text">A good Hoi An brunch option — eggs, coffee, smoothie bowls, and a slower start. <em class="entry-cost">— $$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rosie%27s%20Cafe%20Hoi%20An%20Vietnam">Rosie's Cafe</a></h4><p class="entry-text">A good Hoi An brunch option — eggs, coffee, smoothie bowls, and a slower start. <em class="entry-cost">— $$</em></p></article>
       </section>
 
       <section class="day-block">
@@ -1137,8 +1138,8 @@ section[id], article[id] { scroll-margin-top: 5rem; }
         <p class="kicker">A final city night.</p>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=42%20Nguyen%20Hue%20Ho%20Chi%20Minh%20City">42 Nguyen Hue</a> &mdash; <a href="https://www.google.com/maps/search/?api=1&amp;query=Dong%20Khoi%20Street%20Ho%20Chi%20Minh%20City">Dong Khoi</a> &mdash; <a href="https://www.google.com/maps/search/?api=1&amp;query=Le%20Loi%20Street%20Ho%20Chi%20Minh%20City">Le Loi</a> &mdash; <a href="https://www.google.com/maps/search/?api=1&amp;query=Ton%20That%20Thiep%20Street%20Ho%20Chi%20Minh%20City">Ton That Thiep</a></h4><p class="entry-text">42 Nguyen Hue for one last balcony coffee; Dong Khoi for a polished stroll; Le Loi for Ginkgo and Saigon Centre; Ton That Thiep for Saigon Kitsch–style gifts. <em class="entry-cost">— $–$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=The%20New%20Playground%2026%20Ly%20Tu%20Trong%20Ho%20Chi%20Minh%20City">The New Playground · 26 Ly Tu Trong</a></h4><p class="entry-text">Young local streetwear and accessories — best if they want Vietnamese fashion brands rather than malls or fake-designer stalls. <em class="entry-cost">— $$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Godmother%20Bake%20Brunch%20Ho%20Chi%20Minh%20City">Godmother</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Running%20Bean%20Ho%20Chi%20Minh%20City">Running Bean</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Mille%20Mille%20Ho%20Chi%20Minh%20City%20Vietnam">Mille Mille</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Ph%C3%AA%20La%20Ho%20Chi%20Minh%20City%20Vietnam">Phê La</a></h4><p class="entry-text">Pick by mood — brunch, a polished cafe meal, croissant and peach tea, or modern Vietnamese tea. <em class="entry-cost">— $$</em></p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vietnam%20House%20Saigon%20Ho%20Chi%20Minh%20City">Vietnam House</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Stoker%20Woodfired%20Grill%20Ho%20Chi%20Minh%20City">Stoker</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Ciao%20Bella%20Saigon%20Ho%20Chi%20Minh%20City">Ciao Bella</a></h4><p class="entry-text">Vietnam House for elevated Vietnamese on Dong Khoi; Stoker for steak; Ciao Bella for cozy Italian with no seafood pressure. <em class="entry-cost">— $$$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Running%20Bean%20Ho%20Chi%20Minh%20City">Running Bean</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Mille%20Mille%20Ho%20Chi%20Minh%20City%20Vietnam">Mille Mille</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Ph%C3%AA%20La%20Ho%20Chi%20Minh%20City%20Vietnam">Phê La</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Godmother%20Bake%20Brunch%20Ho%20Chi%20Minh%20City">Godmother</a></h4><p class="entry-text">Pick by mood — Running Bean for the safest brunch, Mille Mille for croissant and peach tea, Phê La for modern Vietnamese tea, Godmother for a pretty cake-and-coffee stop. <em class="entry-cost">— $$</em></p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vietnam%20House%20Saigon%20Ho%20Chi%20Minh%20City">Vietnam House</a>, <a href="https://www.google.com/maps/search/?api=1&amp;query=Ciao%20Bella%20Saigon%20Ho%20Chi%20Minh%20City">Ciao Bella</a>, or <a href="https://www.google.com/maps/search/?api=1&amp;query=Pizza%204P%27s%20Ho%20Chi%20Minh%20City%20Vietnam">Pizza 4P's</a></h4><p class="entry-text">Vietnam House for elevated Vietnamese on Dong Khoi; Ciao Bella for cozy Italian with no seafood pressure; Pizza 4P's for the safest polished comfort-food finale. <em class="entry-cost">— $$–$$$</em></p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Zion%20Sky%20Lounge%20Ho%20Chi%20Minh%20City">Zion</a> or <a href="https://www.google.com/maps/search/?api=1&amp;query=Saigon%20Saigon%20Rooftop%20Bar%20Ho%20Chi%20Minh%20City">Saigon Saigon</a> after dinner</h4><p class="entry-text">Zion for the young, music-led finale; Saigon Saigon for the classic rooftop version. <em class="entry-cost">— $$$–$$$$</em></p></article>
       </section>
 
@@ -1172,6 +1173,14 @@ section[id], article[id] { scroll-margin-top: 5rem; }
     <p class="kicker">Appendix &amp; Reference</p>
     <h2 class="appendix-title">Hotels, cafes, and notes for the road.</h2>
   </div>
+
+  <section class="appendix-section col" id="quality-check">
+    <p class="kicker">Current-map check</p>
+    <h3>Small places change quickly</h3>
+    <p class="lede">Cafes, boutiques, spas, and night-market stalls can move or rebrand quickly in Vietnam. The guide uses stronger anchors, but DK and Maria should still confirm opening hours and recent Google Maps reviews the week they travel.</p>
+    <article class="entry"><h4 class="entry-name">Cafe Apartments rule</h4><p class="entry-text">Treat 42 Nguyen Hue as the experience: balcony views, stairwell wandering, and a drink over the walking street. Pick the best currently open cafe on the day rather than chasing an old named listing.</p></article>
+    <article class="entry"><h4 class="entry-name">Boutique rule</h4><p class="entry-text">For Thao Dien, start with In The Mood, Saigon Concept, KOKONIC, Amaï, Bakes, and Maison Marou, then let recent map reviews decide the exact order.</p></article>
+  </section>
 
   <section class="appendix-section col" id="hotels">
     <p class="kicker">Hotels</p>
@@ -1237,9 +1246,9 @@ section[id], article[id] { scroll-margin-top: 5rem; }
       <summary><span class="group-label">Saigon</span><span class="group-mark"></span></summary>
       <div class="group-body">
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Running%20Bean%20Ho%20Chi%20Minh%20City%20Vietnam">The Running Bean</a></h4><p class="entry-text">Best easy District 1 brunch anchor — modern, bright, coffee plus eggs, toast, salads, bowls.</p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Godmother%20Bake%20%26%20Brunch%20Ho%20Chi%20Minh%20City%20Vietnam">Godmother Bake &amp; Brunch</a></h4><p class="entry-text">Polished, photogenic, date-brunch energy near Le Loi.</p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Godmother%20Bake%20%26%20Brunch%20Ho%20Chi%20Minh%20City%20Vietnam">Godmother Bake &amp; Brunch</a></h4><p class="entry-text">Photogenic Le Loi coffee-and-cake stop. Check recent reviews before making it the main brunch.</p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mille%20Mille%20Ho%20Chi%20Minh%20City%20Vietnam">Mille Mille</a></h4><p class="entry-text">A patisserie stop for croissants and peach tea. Perfect between hotel, museums, or District 3 wandering.</p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=LaLa%20Bakery%20Ho%20Chi%20Minh%20City%20Vietnam">LaLa Bakery</a></h4><p class="entry-text">Cute bakery and cake stop; better as a sweet break than a full meal.</p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Maison%20Marou%20Saigon%20Ho%20Chi%20Minh%20City">Maison Marou</a></h4><p class="entry-text">Vietnamese chocolate, pastry, coffee, and polished gifts — a stronger current pick than ambiguous small-bakery listings.</p></article>
       </div>
     </details>
 
@@ -1248,7 +1257,7 @@ section[id], article[id] { scroll-margin-top: 5rem; }
       <div class="group-body">
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Wonderlust%20Coffee%20Bakery%20Da%20Nang%20Vietnam">Wonderlust Coffee &amp; Bakery</a></h4><p class="entry-text">Modern, bright, central cafe — coffee, bakery, souvenirs.</p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Happy%20Heart%20Cafe%20Da%20Nang%20Vietnam">Happy Heart Cafe</a></h4><p class="entry-text">Comfort brunch near the beach side — pancakes, bagels, burgers, pasta.</p></article>
-        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rosie's%20Cafe%20Hoi%20An%20Vietnam">Rosie's Cafe</a></h4><p class="entry-text">Cozy coffee and brunch for a slow Hoi An morning before lantern-town wandering.</p></article>
+        <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rosie%27s%20Cafe%20Hoi%20An%20Vietnam">Rosie's Cafe</a></h4><p class="entry-text">Cozy coffee and brunch for a slow Hoi An morning before lantern-town wandering.</p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Reaching%20Out%20Teahouse%20Hoi%20An%20Vietnam">Reaching Out Teahouse</a></h4><p class="entry-text">A quiet tea experience in the old town. More memorable than another cafe.</p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=M%C3%B3t%20H%E1%BB%99i%20An%20Vietnam">Mót Hội An</a></h4><p class="entry-text">The famous herbal tea — lemongrass, lotus, citrus. A very Hoi An cup-in-hand moment.</p></article>
         <article class="entry"><h4 class="entry-name"><a href="https://www.google.com/maps/search/?api=1&amp;query=Phin%20Coffee%20Hoi%20An%20Vietnam">Phin Coffee</a> &amp; <a href="https://www.google.com/maps/search/?api=1&amp;query=Hoi%20An%20Roastery%20Hoi%20An%20Vietnam">Hoi An Roastery</a></h4><p class="entry-text">For a more local coffee moment.</p></article>
@@ -1431,6 +1440,7 @@ section[id], article[id] { scroll-margin-top: 5rem; }
       <li><a href="https://www.corner.inc/place/292699">Saigon Concept — Tran Ngoc Dien</a></li>
       <li><a href="https://inthemoodsaigon.com/pages/contact">In The Mood Saigon</a></li>
       <li><a href="https://www.amaisaigon.vn/about/">Amaï Saigon ceramics</a></li>
+      <li><a href="https://kokonic.com/">KOKONIC official site</a></li>
       <li><a href="https://centralmarket.com.vn/the-new-playground">The New Playground</a></li>
       <li><a href="https://ginkgotshirts.com/en/">Ginkgo Vietnam</a></li>
       <li><a href="https://yugoc.com/en/stores/saigon-kitsch-2/">Saigon Kitsch — Ton That Thiep</a></li>
@@ -1443,6 +1453,8 @@ section[id], article[id] { scroll-margin-top: 5rem; }
       <li><a href="https://phe.la/">Phê La</a></li>
       <li><a href="https://millemille.vn/menu/">Mille Mille menu</a></li>
       <li><a href="https://www.vietnamairlines.com/gb/en/plan-book/travel/travel-guide/brunch-saigon">Vietnam Airlines — Saigon brunch</a></li>
+      <li><a href="https://maisonmarou.com/pages/locations">Maison Marou locations</a></li>
+      <li><a href="https://thaodien.app/guide/sweets-and-desserts-thao-dien">Thaodien — Bakes and Thao Dien dessert guide</a></li>
       <li><a href="https://wonderlust.vn/location/">Wonderlust Coffee Da Nang</a></li>
       <li><a href="https://happyheartcafe.vn/">Happy Heart Cafe Da Nang</a></li>
       <li><a href="https://www.rosiecafe.com/">Rosie's Cafe Hoi An</a></li>
@@ -1487,7 +1499,7 @@ section[id], article[id] { scroll-margin-top: 5rem; }
       <li><a href="https://www.caravellehotel.com/saigon-saigon-bar/">Saigon Saigon Rooftop Bar</a></li>
       <li><a href="https://www.thedecksaigon.com/">The Deck Saigon</a></li>
       <li><a href="https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/vietnam-house">Michelin — Vietnam House</a></li>
-      <li><a href="https://www.asia-bars.com/2017/01/stoker-woodfired-grill-bar-ho-chi-minh-city/">Stoker Woodfired Grill</a></li>
+      <li><a href="https://pizza4ps.com/vn/location/934">Pizza 4P's Saigon Centre</a></li>
     </ul>
   </section>
 </section>
